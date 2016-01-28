@@ -32,7 +32,7 @@ class OrderController
         $desc->addBase($order->getBase());
         $desc->addComponents($order->getComponents());
         $desc->addCheese($order->getCheeseCollection());
-        
+
         $result = "Your Order is: " . $desc->describe();
 
         $priceCalc = new PriceCalculator($order->getBase());

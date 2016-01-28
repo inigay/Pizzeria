@@ -13,6 +13,6 @@ class Validator
 {
     public function validate($str)
     {
-
+        
     }
 }
