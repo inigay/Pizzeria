@@ -8,24 +8,27 @@
 
 namespace Pizzeria\Models\Components;
 
+use Pizzeria\Models\Describable;
 
-abstract class Base
+abstract class Base implements Describable
 {
     protected $name;
     protected $type;
-    protected $factor;
     protected $price;
 
-    abstract public function __construct($factor);
 
-    public function addToPrice($price)
+    public function getPrice()
     {
-        return $price + $this->price * $this->factor;
+        return $this->price;
     }
 
-    public function getType()
+    public function getName()
     {
-        return $this->type;
+        return $this->name;
     }
 
+    public function describe()
+    {
+        return $this->name . " Crust";
+    }
 }

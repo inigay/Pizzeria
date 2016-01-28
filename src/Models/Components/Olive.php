@@ -9,11 +9,11 @@
 namespace Pizzeria\Models\Components;
 
 
-class Olive extends Base
+class Olive extends ComponentBase
 {
     public function __construct($factor = 1)
     {
-        $this->factor = $factor;
+        parent::__construct($factor);
         $this->name = "olive";
         $this->type = "topping";
         $this->price = 0.4;

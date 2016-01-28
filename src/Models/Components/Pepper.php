@@ -9,11 +9,11 @@
 namespace Pizzeria\Models\Components;
 
 
-class Pepper extends Base
+class Pepper extends ComponentBase
 {
     public function __construct($factor = 1)
     {
-        $this->factor = $factor;
+        parent::__construct($factor);
         $this->name = "pepper";
         $this->type = "topping";
         $this->price = 0.2;

@@ -8,15 +8,17 @@
 
 namespace Pizzeria\Models\Components;
 
+use Pizzeria\Models\Describable;
 
-class American extends Base
+class American extends ComponentBase
 {
 
     public function __construct($factor = 1)
     {
-        $this->factor = $factor;
+        parent::__construct($factor);
         $this->name = "american";
         $this->type = "cheese";
         $this->price = 3;
     }
+
 }

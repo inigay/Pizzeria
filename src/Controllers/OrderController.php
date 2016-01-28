@@ -8,20 +8,28 @@
 
 namespace Pizzeria\Controllers;
 
-use Pizzeria\Validation\Validator;
+use Pizzeria\Models\Components\Olive;
+use Pizzeria\Models\Components\Swiss;
+use Pizzeria\Models\Components\ThinCrust;
+use Pizzeria\Models\PriceCalculator;
 
 class OrderController
 {
     private $validator;
 
-    public function __construct(Validator $validator)
+    public function __construct()
     {
-        $this->validator = $validator;
+
     }
 
     public function calculatePrice($str)
     {
-        $this->validator->validate($str);
+
+        $calc = new PriceCalculator(new ThinCrust());
+        $calc->addComponent(new Olive(2));
+        $calc->addComponent(new Swiss());
+
+        $calc->getTotalPrice();
 
     }
 }

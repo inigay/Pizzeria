@@ -6,9 +6,8 @@
  * Time: 8:43 PM
  */
 
-namespace Pizzeria\Models\Base;
+namespace Pizzeria\Models\Components;
 
-use Pizzeria\Models\Base\Base;
 
 class ThickCrust extends Base
 {
@@ -19,9 +18,4 @@ class ThickCrust extends Base
         $this->price = 1.25;
     }
 
-
-    public function addToPrice($price)
-    {
-        return $price + $this->price;
-    }
 }

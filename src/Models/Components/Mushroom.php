@@ -9,11 +9,11 @@
 namespace Pizzeria\Models\Components;
 
 
-class Mushroom extends Base
+class Mushroom extends ComponentBase
 {
     public function __construct($factor = 1)
     {
-        $this->factor = $factor;
+        parent::__construct($factor);
         $this->name = "mushroom";
         $this->type = "topping";
         $this->price = 0.6;

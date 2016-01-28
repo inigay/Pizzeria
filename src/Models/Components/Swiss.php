@@ -9,12 +9,12 @@
 namespace Pizzeria\Models\Components;
 
 
-class Swiss extends Base
+class Swiss extends ComponentBase
 {
 
     public function __construct($factor = 1)
     {
-        $this->factor = $factor;
+        parent::__construct($factor);
         $this->name = "swiss";
         $this->type = "cheese";
         $this->price = 4;
