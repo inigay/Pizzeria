@@ -1,0 +1,19 @@
+{
+    "name": "igor/pizzeria",
+    "description": "Pizzeria Shop you can select your order and get the price of the order",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "igor",
+            "email": "igor.nigay@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^5.1"
+    },
+    "autoload": {
+        "psr-4":{
+            "Pizzeria\\": "src/"
+        }
+    }
+}
