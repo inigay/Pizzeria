@@ -8,9 +8,11 @@
 
 namespace Pizzeria\Controllers;
 
+use Pizzeria\Factory\OrderCollectionFactory;
 use Pizzeria\Models\Components\Olive;
 use Pizzeria\Models\Components\Swiss;
 use Pizzeria\Models\Components\ThinCrust;
+use Pizzeria\Models\Descriptor;
 use Pizzeria\Models\PriceCalculator;
 
 class OrderController
@@ -25,11 +27,27 @@ class OrderController
     public function calculatePrice($str)
     {
 
-        $calc = new PriceCalculator(new ThinCrust());
-        $calc->addComponent(new Olive(2));
-        $calc->addComponent(new Swiss());
+       $order = OrderCollectionFactory::createOrder($str);
+        $desc = new Descriptor();
+        $desc->addBase($order->getBase());
+        $desc->addComponents($order->getComponents());
+        $desc->addCheese($order->getCheeseCollection());
+        
+        $result = "Your Order is: " . $desc->describe();
 
-        $calc->getTotalPrice();
+        $priceCalc = new PriceCalculator($order->getBase());
+        foreach($order->getComponents() as $comp)
+        {
+            $priceCalc->addComponent($comp);
+        }
+
+        foreach($order->getCheeseCollection() as $cheese)
+        {
+            $priceCalc->addComponent($cheese);
+        }
+
+        $result .= "\n Total is: " . $priceCalc->getTotalPrice();
+        return $result;
 
     }
 }

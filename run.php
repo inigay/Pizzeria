@@ -18,4 +18,7 @@ $str = fgets($handle);
 
 fclose($handle);
 
-$a->calculatePrice($str);
+$result = $a->calculatePrice($str);
+
+echo $result;
+exit();
